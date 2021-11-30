@@ -1,7 +1,9 @@
 # FELIS-TOKEN.COM
-FELIS TOKEN WEBSITE CODE
+FELIS PUBLIC FAUCET WEBSITE CODE
 
-I made this for use as a faucet for FELIS. Feel free to take it for your project.  
+I made this for use as a faucet for FELIS. Kinda simple but these things don't need to be super complicated, they just need to work. Feel free to take it for your project.  
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 FELISBOT.PS1
 
