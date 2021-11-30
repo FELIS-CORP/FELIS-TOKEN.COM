@@ -16,6 +16,6 @@ If (Select-String -Path d:\website\FELISBOT\FELISUTXO.txt -Pattern '2123400' -Si
 
 }
 
-Write-Host 'Checking again in 5 minutes' -ForegroundColor BLUE
+Write-Host 'Checking again in 5 minutes' -ForegroundColor GREY
 Start-Sleep -Seconds 268
 .\FELISBOT.ps1
