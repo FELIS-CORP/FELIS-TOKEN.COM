@@ -7,9 +7,10 @@ I made this for use as a faucet for FELIS. Kinda simple but these things don't n
 
 FELISBOT.PS1
 --------------
-NOTE: There is some setup involved to make this work. 
+NOTE: There is some setup involved to make FELISBOT work. 
 --------------
 First, you'll want to make sure you get the socket path into the environment variables.  You can find a video on how to do that here https://www.youtube.com/watch?v=gfHMpDW6W7w.  
+
 Next, make sure your execution policy is set to "RemoteSigned" and not "AllSigned" as detailed here 
 https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.2#managing-the-execution-policy-with-powershell
 
