@@ -27,6 +27,7 @@ If (Select-String -Path d:\website\FELISBOT\FELISUTXO.txt -Pattern 'lovelace": 2
         #We construct a transaction back to the sender address containing return ADA and 1 million FELIS
         #We send the transaction.
         #We append the TX hash to the log.
+	Add-Content d:\website\FELISBOT\TXHashLog.txt "$cleantxhash"
         }
     Else {
         Write-Output "It's in the log so I shouldn't do anything"
