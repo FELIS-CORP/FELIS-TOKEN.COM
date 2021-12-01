@@ -1,7 +1,7 @@
 #Message to user letting them know it's sending the query for the UTXOs
 Write-Host 'Now checking FELIS wallet UTXOs for new incoming transactions...' -ForegroundColor YELLOW
 #initiate the query command to build the raw utxo list
-cardano-cli query utxo --mainnet --address addr1qx3l3vmpt6sln6an5myyfwt29yrgu8aupy4cgrpw5vt2t90644467xe7zgx9khlgjmujuw0pehf62c0un6nhlfn05cas2z4y6a --out-file $utxolist
+cardano-cli query utxo --mainnet --address addr1qx3l3vmpt6sln6an5myyfwt29yrgu8aupy4cgrpw5vt2t90644467xe7zgx9khlgjmujuw0pehf62c0un6nhlfn05cas2z4y6a --out-file d:\website\FELISBOT\FELISUTXO.txt
 #Rest to make sure the file is written before we check it.  Also a great time to inject a value for testing.
 Start-Sleep -Seconds 20
 
