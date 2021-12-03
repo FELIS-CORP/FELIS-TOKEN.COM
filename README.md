@@ -1,4 +1,7 @@
 # FELIS-TOKEN.COM
+
+If you appreciate and would like to donate you can send me some ADA @ addr1qyj34769qz0gehxym9wwgq4jsr73zaghqnj5p3wp93wjj08rdk6ms56a5ldcvqsx9j0mqy7keldvw3k5ve50gwttdeeqpxcq2x
+
 FELIS PUBLIC FAUCET WEBSITE CODE
 
 I made this HTML site for use as a faucet for FELIS. Kinda simple but these things don't need to be super complicated, they just need to work. Feel free to take it for your project. 
