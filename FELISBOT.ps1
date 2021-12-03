@@ -9,13 +9,13 @@ If (Select-String -Path d:\website\FELISBOT\FELISUTXO.txt -Pattern 'lovelace": 2
     Select-String -Path d:\website\FELISBOT\FELISUTXO.txt -Pattern 'lovelace": 2123400' -AllMatch -Context 2,0 > TXPrepper.txt #Picks the FELIS transaction
     $txhash = (Get-Content d:\website\FELISBOT\TXPrepper.txt)
     #$amount = 90;
-    $y= @()
+	$y= @()
     foreach($line in $txhash){
 			if ( $line.length -gt 1){ $y += $line.substring(0,90) } 
     }
     $y | Set-Content d:\website\FELISBOT\TXPrepper.txt 
 	(Get-Content d:\website\FELISBOT\TXPrepper.txt) -replace '^.......................' | Set-Content d:\website\FELISBOT\TXPrepper.txt #formatting complete
-	(Get-Content d:\website\FELISBOT\TXPrepper.txt) | ForEach-Object {$_ -replace '"',''} | Set-Content d:\website\FELISBOT\TXPrepper.txt
+	(Get-Content d:\website\FELISBOT\TXPrepper.txt) | ForEach-Object {$_ -replace '"',''} | Set-Content d:\website\FELISBOT\TXPrepper.txt #formatting complete
 	#Now we check the TxHash against $logfile to see if we already responded to this UTXO.
     $cleantxhash = (Get-Content d:\website\FELISBOT\TXPrepper.txt)
     $txhashlog = (Get-Content d:\website\FELISBOT\TXHashLog.txt)
@@ -27,18 +27,24 @@ If (Select-String -Path d:\website\FELISBOT\FELISUTXO.txt -Pattern 'lovelace": 2
         $Site = "https://cardanoscan.io/transaction/"
         $SiteTx = $Site + $cleantxhash
         $SitePattern = "<meta property=twitter:image content=/public/assets/images/meta-cover.png>"
-        (Invoke-WebRequest $SiteTx).RawContent > RawSite.txt
-        Select-String -Path d:\website\FELISBOT\RawSite.txt -Pattern $SitePattern > d:\website\FELISBOT\Address.txt
-        (Get-Content d:\website\FELISBOT\Address.txt | Select-Object -Skip 112) | Set-Content d:\website\FELISBOT\Address.txt
-        (Get-Content d:\website\FELISBOT\Address.txt) -replace '^..........................' | Set-Content d:\website\FELISBOT\Address.txt
+        (Invoke-WebRequest $SiteTx).RawContent > RawSite.txt #dumps the webpage containing info about the transaction to raw text
+        Select-String -Path d:\website\FELISBOT\RawSite.txt -Pattern $SitePattern > d:\website\FELISBOT\Address.txt #Converts the output to lines of strings
+        (Get-Content d:\website\FELISBOT\Address.txt | Select-Object -Skip 112) | Set-Content d:\website\FELISBOT\Address.txt #deletes everything up to the row with sender address.
+        (Get-Content d:\website\FELISBOT\Address.txt) -replace '^..........................' | Set-Content d:\website\FELISBOT\Address.txt #deletes the leading characters
+        (Get-Content d:\website\FELISBOT\Address.txt -First 1) | Set-Content d:\website\FELISBOT\Address.txt #deletes the trailing lines
+        (Get-Content d:\website\FELISBOT\Address.txt) | ForEach-Object {$_ -replace '"','.'} | Set-Content d:\website\FELISBOT\Address.txt #rids me of double quotes
+        (Get-Content d:\website\FELISBOT\Address.txt) | ForEach-Object {$_ -replace "'","."} | Set-Content d:\website\FELISBOT\Address.txt #rids me of single quotes
+        (Get-Content d:\website\FELISBOT\Address.txt).Replace('.,.copyInputAddressID0.). class=.copyButton ','') | Set-Content d:\website\FELISBOT\Address.txt #address formatting complete
+        $Address = (Get-Content d:\website\FELISBOT\Address.txt)
         
         #We construct a transaction back to the sender address containing return ADA and 1 million FELIS
         #We send the transaction.
         #We append the TX hash to the log.
+        Add-Content d:\website\FELISBOT\AddressLog.txt $Address
 	    Add-Content d:\website\FELISBOT\TXHashLog.txt $cleantxhash
-        Clear-Content d:\website\FELISBOT\TXPrepper.txt
-        Clear-Content d:\website\FELISBOT\RawSend.txt
-        Clear-Content d:\website\FELISBOT\RawSend2.txt
+        #Clear-Content d:\website\FELISBOT\TXPrepper.txt
+        #Clear-Content d:\website\FELISBOT\RawSite.txt
+        #Clear-Content d:\website\FELISBOT\Address.txt
         }
     Else {
         Write-Host 'No new FELIS transactions detected...' -ForegroundColor RED
