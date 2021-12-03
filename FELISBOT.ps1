@@ -8,7 +8,6 @@ Start-Sleep -Seconds 15
 If (Select-String -Path d:\website\FELISBOT\FELISUTXO.txt -Pattern 'lovelace": 2123400' -AllMatch) {
     Select-String -Path d:\website\FELISBOT\FELISUTXO.txt -Pattern 'lovelace": 2123400' -AllMatch -Context 2,0 > TXPrepper.txt #Picks the FELIS transaction
     $txhash = (Get-Content d:\website\FELISBOT\TXPrepper.txt)
-    #$amount = 90;
 	$y= @()
     foreach($line in $txhash){
 			if ( $line.length -gt 1){ $y += $line.substring(0,90) } 
