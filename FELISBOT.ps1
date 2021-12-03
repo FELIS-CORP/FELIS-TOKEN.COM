@@ -9,7 +9,7 @@ If (Select-String -Path d:\website\FELISBOT\FELISUTXO.txt -Pattern 'lovelace": 2
     Select-String -Path d:\website\FELISBOT\FELISUTXO.txt -Pattern 'lovelace": 2123400' -AllMatch -Context 2,0 > TXPrepper.txt #Picks the FELIS transaction
     $txhash = (Get-Content d:\website\FELISBOT\TXPrepper.txt)
     #$amount = 90;
-	$y= @()
+    $y= @()
     foreach($line in $txhash){
 			if ( $line.length -gt 1){ $y += $line.substring(0,90) } 
     }
@@ -24,14 +24,13 @@ If (Select-String -Path d:\website\FELISBOT\FELISUTXO.txt -Pattern 'lovelace": 2
         Write-Output "It's not in the log so I'll add it after sending."
         
         #WebScraper searches Cardanoscan.io using TX hash
-        $ScrapeTo = "id=copyInputAddressID0 onclick"
         $Site = "https://cardanoscan.io/transaction/"
         $SiteTx = $Site + $cleantxhash
-        (Invoke-WebRequest $SiteTx).RawContent > RawSend.txt
-        (Get-Content d:\website\FELISBOT\RawSend.txt | Select-Object -Skip 25) | Set-Content d:\website\FELISBOT\RawSend.txt
-        Select-String -Path d:\website\FELISBOT\RawSend.txt -Pattern $ScrapeTo -AllMatch -Context 1 > RawSend2.txt
-        (Get-Content d:\website\FELISBOT\RawSend2.txt | Select-Object -Skip 135) | Set-Content d:\website\FELISBOT\RawSend2.txt
-        (Get-Content d:\website\FELISBOT\RawSend2.txt) -replace '^...................' | Set-Content d:\website\FELISBOT\RawSend2.txt
+        $SitePattern = "<meta property=twitter:image content=/public/assets/images/meta-cover.png>"
+        (Invoke-WebRequest $SiteTx).RawContent > RawSite.txt
+        Select-String -Path d:\website\FELISBOT\RawSite.txt -Pattern $SitePattern > d:\website\FELISBOT\Address.txt
+        (Get-Content d:\website\FELISBOT\Address.txt | Select-Object -Skip 112) | Set-Content d:\website\FELISBOT\Address.txt
+        (Get-Content d:\website\FELISBOT\Address.txt) -replace '^..........................' | Set-Content d:\website\FELISBOT\Address.txt
         
         #We construct a transaction back to the sender address containing return ADA and 1 million FELIS
         #We send the transaction.
