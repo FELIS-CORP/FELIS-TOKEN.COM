@@ -41,7 +41,7 @@ If (Select-String -Path d:\website\FELISBOT\FELISUTXO.txt -Pattern 'lovelace": 2
         #We send the transaction.
         #We append the TX hash to the log.
         Add-Content d:\website\FELISBOT\AddressLog.txt $Address
-	    Add-Content d:\website\FELISBOT\TXHashLog.txt $cleantxhash
+	Add-Content d:\website\FELISBOT\TXHashLog.txt $cleantxhash
         #Clear-Content d:\website\FELISBOT\TXPrepper.txt
         #Clear-Content d:\website\FELISBOT\RawSite.txt
         #Clear-Content d:\website\FELISBOT\Address.txt
