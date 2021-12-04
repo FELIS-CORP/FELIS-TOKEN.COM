@@ -4,9 +4,8 @@ If you appreciate and would like to donate you can send me some ADA @ addr1qyj34
 
 FELIS PUBLIC FAUCET WEBSITE CODE
 
-I made this HTML site for use as a faucet for FELIS. Kinda simple but these things don't need to be super complicated, they just need to work. Feel free to take it for your project. 
-
-
+I made this HTML site for use as a faucet for FELIS. Kinda simple but these things don't need to be super complicated, they just need to work. Feel free to take it for your project. I'm not really in this to spend a whole lot of time designing websites.
+-------------
 FELISBOT.PS1
 
 FELISBOT is an INCOMPLETE WORK-IN-PROGRESS Windows Powershell script that queries the UTXO contents of my wallet through cardano-cli via a Daedalus node every 5 minutes, dumps a text file containing a list of the UTXOs, formats the TXId if it finds the specified amount, scrapes and formats the raw output of cardanoscan.io to achieve a sender address, adds it and the TxHash to a log if it's not already there. That's as far as I've gotten as of my last submission.
