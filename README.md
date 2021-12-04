@@ -1,9 +1,9 @@
 # FELIS-TOKEN.COM
 
 If you appreciate and would like to donate you can send me some ADA @ 
-___________________________
+
 addr1qyj34769qz0gehxym9wwgq4jsr73zaghqnj5p3wp93wjj08rdk6ms56a5ldcvqsx9j0mqy7keldvw3k5ve50gwttdeeqpxcq2x
--------------------------------
+
 --------------------------------
 FELIS PUBLIC FAUCET WEBSITE CODE
 --------------------------------
