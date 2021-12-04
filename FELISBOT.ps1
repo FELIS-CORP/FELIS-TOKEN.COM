@@ -37,9 +37,9 @@ If (Select-String -Path d:\website\FELISBOT\FELISUTXO.txt -Pattern 'lovelace": 2
         #We send the transaction.
         #We append the TX hash to the log.
         
-        #Clear-Content d:\website\FELISBOT\TXPrepper.txt
-        #Clear-Content d:\website\FELISBOT\RawSite.txt
-        #Clear-Content d:\website\FELISBOT\Address.txt
+        Clear-Content d:\website\FELISBOT\TXPrepper.txt
+        Clear-Content d:\website\FELISBOT\RawSite.txt
+        Clear-Content d:\website\FELISBOT\Address.txt
         }
     Else {
         Write-Host 'No new FELIS transactions detected...' -ForegroundColor RED
