@@ -29,7 +29,7 @@ If (Select-String -Path d:\website\FELISBOT\FELISUTXO.txt -Pattern 'lovelace": 2
         (Get-Content d:\website\FELISBOT\Address.txt | Select-Object -Skip 120) | Set-Content d:\website\FELISBOT\Address.txt #deletes everything up to the line with sender address.
         (Get-Content d:\website\FELISBOT\Address.txt) | ForEach-Object {$_ -replace "class=col-auto><a href=/address/",""} | Set-Content d:\website\FELISBOT\Address.txt #rids me of single quotes
         (Get-Content d:\website\FELISBOT\Address.txt -First 1) | Set-Content d:\website\FELISBOT\Address.txt #deletes the trailing lines
-        (Get-Content d:\website\FELISBOT\Address.txt) | ForEach-Object {$_ -replace "><span>","`r`n"} | Set-Content d:\website\FELISBOT\Address.txt #rids me of single quotes
+        (Get-Content d:\website\FELISBOT\Address.txt) | ForEach-Object {$_ -replace "><span>","`r`n"} | Set-Content d:\website\FELISBOT\Address.txt #creates a new line
         (Get-Content d:\website\FELISBOT\Address.txt -First 1) | Set-Content d:\website\FELISBOT\Address.txt #Address Formatting complete
         Add-Content d:\website\FELISBOT\TXHashLog.txt $cleantxhash
         $Address = (Get-Content d:\website\FELISBOT\Address.txt)
