@@ -7,10 +7,9 @@ FELIS PUBLIC FAUCET WEBSITE CODE
 I made this HTML site for use as a faucet for FELIS. Kinda simple but these things don't need to be super complicated, they just need to work. Feel free to take it for your project. 
 
 
-
 FELISBOT.PS1
 
-FELISBOT is a Windows Powershell script that queries the UTXO contents of my wallet through cardano-cli via a Daedalus node every 5 minutes, dumps a text file containing a list of the UTXOs, searches the text file for the amount specified, copies the TXId if it finds the specified amount, queries the TXId for a sender address, adds it to a log if it's not already there, constructs a transaction containing 1 million FELIS and 1.8ADA, then submits the transaction back to the person who sent it to me. Together with the simple website it works like a locally hosted auto-faucet if you just leave your powershell script running and your Daedalus wallet connected.  If you lose connection or have to close Daedalus, you'll need get the socket path again (it changes every time you re-connect) and put the new value back into the environment variable.  
+FELISBOT is an INCOMPLETE WORK-IN-PROGRESS Windows Powershell script that queries the UTXO contents of my wallet through cardano-cli via a Daedalus node every 5 minutes, dumps a text file containing a list of the UTXOs, formats the TXId if it finds the specified amount, scrapes and formats the raw output of cardanoscan.io to achieve a sender address, adds it and the TxHash to a log if it's not already there, constructs a transaction containing 1 million FELIS and the necessary amount of return ADA, then submits the transaction back to the person who sent it to me.  Together with the simple website it works like a locally hosted auto-faucet if you just leave your powershell script running and your Daedalus wallet connected.  If you lose connection or have to close Daedalus, you'll need get the socket path again (it changes every time you re-connect) and put the new value back into the environment variable.  
 
 --------------
 NOTE: There is some setup involved to make FELISBOT work. 
