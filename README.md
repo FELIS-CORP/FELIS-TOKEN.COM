@@ -8,7 +8,7 @@ addr1qyj34769qz0gehxym9wwgq4jsr73zaghqnj5p3wp93wjj08rdk6ms56a5ldcvqsx9j0mqy7keld
 FELIS PUBLIC FAUCET WEBSITE CODE
 --------------------------------
 
-I made this HTML site for use as a faucet for FELIS. Kinda simple but these things don't need to be super complicated, they just need to work. Feel free to take it for your project. I'm not really in this to spend a whole lot of time designing websites but I'll gradually update it as I go along to make it slightly more appealing.  
+I made this HTML site for use as a way to purchase FELIS for anyone who would like to hold it. It's painfully simple but that's fine by me. Just use the Muesliswap DEX aggregator engine built into the website to trade FELIS<>ADA.
 
 ------------------
 FELISBOT.PS1
